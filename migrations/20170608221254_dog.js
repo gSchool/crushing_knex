@@ -1,11 +1,11 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('breed', (table) => {
-        table.increments().notNullable().primary();
+        table.increments('id').notNullable().primary();
         table.string('breed-type');
     })
     .createTable('dog', (table) => {
-      table.increments().notNullable().primary();
+      table.increments('id').notNullable().primary();
       table.string('name').notNullable();
       table.integer('age').notNullable();
       table.string('city').notNullable();

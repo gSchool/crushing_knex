@@ -4,19 +4,19 @@ exports.seed = function(knex, Promise) {
     .then(function() {
     // Inserts seed entries
     return knex('breed').insert([{
-        "breed-type": 'Welsh Corgi'
+        breed: 'Welsh Corgi'
       },
       {
-        "breed-type": 'German'
+        breed: 'German Shepherd'
       },
       {
-        "breed-type": 'Great Dane'
+        breed: 'Great Dane'
       },
       {
-        "breed-type": 'Pitbull'
+        breed: 'Pitbull'
       },
       {
-        "breed-type": 'Chow Chow'
+        breed: 'Chow Chow'
       }
     ]);
   });
