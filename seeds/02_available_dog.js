@@ -1,9 +1,9 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('dog').del()
+  return knex('available_dog').del()
     .then(function() {
       // Inserts seed entries
-      return knex('dog').insert([
+      return knex('available_dog').insert([
         {
           name: 'Banksy',
           age: 4,

@@ -5,8 +5,8 @@ module.exports = {
     getAll: function() {
       return knex('breed');
     },
-    getOne: function(id) {
-      return knex('breed').where('id', id).first();
+    getOne: function(name) {
+      return knex('breed').where('name', name).first();
     },
     create: function(breed) {
       return knex('breed').insert(breed).returning('*');
@@ -14,13 +14,13 @@ module.exports = {
   },
   dog: {
     getAll: function() {
-      return knex('dog');
+      return knex('available_dog');
     },
     getOne: function(name) {
-      return knex('dog').where('name', name).first();
+      return knex('available_dog').where('name', name).first();
     },
     create: function(dog) {
-      return knex('dog').insert(dog).returning('*');
+      return knex('available_dog').insert(dog).returning('*');
     }
   }
 };

@@ -1,17 +1,17 @@
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('breed', (table) => {
-        table.increments('id').notNullable().primary();
-        table.string('breed-type');
+        table.increments('id').notNull().primary();
+        table.string('breed').notNull();
     })
-    .createTable('dog', (table) => {
+    .createTable('available_dog', (table) => {
       table.increments('id').notNullable().primary();
-      table.string('name').notNullable();
-      table.integer('age').notNullable();
-      table.string('city').notNullable();
-      table.string('state').notNullable();
-      table.integer('zip').notNullable();
-      table.integer('breed_id').unsigned().references('id').inTable('breed');
+      table.string('name').notNull();
+      table.integer('age').notNull();
+      table.string('city').notNull();
+      table.string('state').notNull();
+      table.integer('zip').notNull();
+      table.integer('breed_id').unsigned();
+      table.foreign('breed_id').references('id').inTable('breed');
   });
 };
 
