@@ -1,22 +1,26 @@
 const knex = require('./knex');
 
 module.exports = {
-  getAllBreed: () => {
-    return knex('breed');
+  breed: {
+    getAll: function() {
+      return knex('breed');
+    },
+    getOne: function(id) {
+      return knex('breed').where('id', id).first();
+    },
+    create: function(breed) {
+      return knex('breed').insert(breed).returning('*');
+    }
   },
-  getOneBreed: () => {
-    return knex('breed').where('breed-type', breed).first();
-  },
-  createBreed: () => {
-    return knex('breed').insert(breed, 'id');
-  },
-  getAllDog: () => {
-    return knex('dog');
-  },
-  getOneDog: () => {
-    return knex('dog').where('name', name).first();
-  },
-  createDog: () => {
-    return knex('dog').insert(dog, 'id');
+  dog: {
+    getAll: function() {
+      return knex('dog');
+    },
+    getOne: function(name) {
+      return knex('dog').where('name', name).first();
+    },
+    create: function(dog) {
+      return knex('dog').insert(dog).returning('*');
+    }
   }
 };

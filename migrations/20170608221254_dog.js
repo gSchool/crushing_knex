@@ -6,11 +6,11 @@ exports.up = function(knex, Promise) {
     })
     .createTable('dog', (table) => {
       table.increments().notNullable().primary();
-      table.string('name');
-      table.integer('age');
-      table.string('city');
-      table.string('state');
-      table.integer('zip');
+      table.string('name').notNullable();
+      table.integer('age').notNullable();
+      table.string('city').notNullable();
+      table.string('state').notNullable();
+      table.integer('zip').notNullable();
       table.integer('breed_id').unsigned().references('id').inTable('breed');
   });
 };

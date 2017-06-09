@@ -4,24 +4,24 @@ const router = express.Router();
 
 const queries = require('../db/queries');
 
-router.get('/breed', (req, res)=>{
-  queries.breed
+router.get('/dog', (req, res) => {
+  queries.dog
   .getAll()
   .then( (result) => {
     res.json(result);
   })
 })
 
-router.get('/breed/:id', (req, res)=>{
-  queries.breed
-  .getOne(req.params.id)
+router.get('/dog/:name', (req, res) => {
+  queries.dog
+  .getOne(req.params.name)
   .then((result) => {
     res.json(result);
   })
 })
 
-router.post('/breed', (req, res) => {
-  queries.breed
+router.post('/dog', (req, res) => {
+  queries.dog
   .create(req.body)
   .then((results) => {
     res.json(results[0]);
