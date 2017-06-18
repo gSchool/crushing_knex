@@ -7,7 +7,7 @@ const queries = require('../db/queries');
 router.get('/dog', (req, res) => {
   queries.dog
   .getAll()
-  .then( (result) => {
+  .then( result => {
     res.json(result);
   })
 })
@@ -15,7 +15,7 @@ router.get('/dog', (req, res) => {
 router.get('/dog/:name', (req, res) => {
   queries.dog
   .getOne(req.params.name)
-  .then((result) => {
+  .then(result => {
     res.json(result);
   })
 })
@@ -23,7 +23,7 @@ router.get('/dog/:name', (req, res) => {
 router.post('/dog', (req, res) => {
   queries.dog
   .create(req.body)
-  .then((results) => {
+  .then(results => {
     res.json(results[0]);
   })
 });
